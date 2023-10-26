@@ -8,6 +8,10 @@ namespace FundamentosCSharp.Model
 {
     class Cerveza : Bebida, IBebidaAlcoholica
     {
+        public Cerveza():base("",0)
+        {
+
+        }
         public int cantidadStock { get; set; }
         public Cerveza(int cantidad,string nombre ="Cerveza") : base(nombre,cantidad)
         { 

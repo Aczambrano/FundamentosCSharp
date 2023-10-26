@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.IO;
+
 
 namespace FundamentosCSharp
 {
@@ -11,13 +14,18 @@ namespace FundamentosCSharp
     {
         static void Main(string[] args)
         {
-            CervezaDb cervezaDb = new CervezaDb();
+            //Guardar un archivo en txt Serializacion de Json
+            /*
+            Cerveza cerveza = new Cerveza(10, "Blue");
+            string miJson = JsonSerializer.Serialize(cerveza);
+            Console.WriteLine(miJson);
 
-            //Obtener todas las cervezas
-            //obtenerCervezas();
-            //insertarCervezas();
-            //editarCervezas();
-            eliminarCervezas();
+            File.WriteAllText("Json.txt", miJson);
+            */
+
+            string miJson=File.ReadAllText("Json.txt");
+            Cerveza cerveza =JsonSerializer.Deserialize<Cerveza>(miJson);
+            Console.WriteLine(cerveza.marca);
         }
 
         static void eliminarCervezas()
